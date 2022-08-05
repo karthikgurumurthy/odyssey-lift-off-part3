@@ -1,8 +1,13 @@
-const { ApolloServer } = require('apollo-server');
-const typeDefs = require('./schema');
-const resolvers = require('./resolvers');
+const { ApolloServer } = require('apollo-server')
+const {
+  ApolloServerPluginLandingPageLocalDefault,
+} = require('apollo-server-core')
+const { bootstrap: bootstrapGlobalAgent } = require('global-agent')
+const typeDefs = require('./schema')
+const resolvers = require('./resolvers')
+const TrackAPI = require('./datasources/track-api')
 
-const TrackAPI = require('./datasources/track-api');
+bootstrapGlobalAgent()
 
 const server = new ApolloServer({
   typeDefs,
