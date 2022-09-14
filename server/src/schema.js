@@ -6,6 +6,8 @@ const typeDefs = gql`
     tracksForHome: [Track!]!
     "Fetch a specific track, provided a track's ID"
     track(id: ID!): Track
+    "Fetch a specific module, provided a module's ID"
+    module(id: ID!): Module!
   }
 
   "A track is a group of Modules that teaches about a specific topic"
@@ -45,6 +47,10 @@ const typeDefs = gql`
     title: String
     "The Module's length in minutes"
     length: Int
+    "The Module's video URL"
+    videoUrl: String
+    "A description of the Module"
+    content: String
   }
 `
 
